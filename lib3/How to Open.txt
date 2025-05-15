@@ -1,0 +1,30 @@
+1. Always Open The ".cbp" Files
+   [Then code file is in the side panel's 
+    Sources > main.cpp - Double Click]
+2. Then Press Build and Run [Press F9 Key]
+3. It will show the output
+
+OR, 
+To create a Graphics project-
+
+1. Open Codeblocks
+
+2. Then Click File > New > Project 
+
+3. Select > Glut Project and press Go
+
+4. Then press Next and
+   a) Write Project Title
+   b) Select a folder to save the project folder
+      [Usually in Desktop]
+   c) Press Next
+   d) Optional Step-
+      If MinGW folder is not selcted then select it.
+   e) Press Finish
+  
+5. Now in left side panel double click Sources
+   And click the main.cpp file
+
+6. Now write code or copy paste it form the .cpp file
+
+7. Now Build and Run and see output

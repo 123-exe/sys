@@ -1,0 +1,17 @@
+1. Open Ubuntu and Search for "Terminal"
+
+2. In the Terminal write commands-
+   a) vi file-name.l
+   b) Press i and Enter [i is for Insert]
+
+3. Now write codes (Or Copy-Paste from Text Folder)
+
+4. After writting Press Esc key on Keyborad
+5. First Press Shift+; and then type wq
+   and press Enter
+
+6. Then write commands-
+   a) flex file-name.l
+   b) ./a.out
+   c) Write output codes
+   d) Then press Ctrl+D

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Actions</title>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+      }
+      button {
+        padding: 8px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>JavaScript Event Examples</h1>
+    <div>
+      <h3>1. Change Text</h3>
+      <p id="textTarget">Original text</p>
+      <button
+        onclick="document.getElementById('textTarget').textContent='Text changed!'"
+      >
+        Change Text
+      </button>
+    </div>
+
+    <div>
+      <h3>2. Change Color</h3>
+      <p id="colorTarget">Color will change</p>
+      <button
+        onclick="document.getElementById('colorTarget').style.color='red'"
+      >
+        Make Red
+      </button>
+    </div>
+
+    <div>
+      <h3>3. Remove Element</h3>
+      <p id="removeTarget">This will be removed</p>
+      <button onclick="document.getElementById('removeTarget').remove()">
+        Remove It
+      </button>
+    </div>
+
+    <div>
+      <h3>4. Add New Element</h3>
+      <div id="addTarget"></div>
+      <button
+        onclick="const p = document.createElement('p'); p.textContent = 'New item added!'; document.getElementById('addTarget').appendChild(p);"
+      >
+        Add Item
+      </button>
+    </div>
+
+    <div>
+      <h3>5. Mouse Events</h3>
+      <div
+        id="mouseTarget"
+        onmouseover="this.style.backgroundColor='yellow'"
+        onmouseout="this.style.backgroundColor='white'"
+        style="padding: 10px; border: 1px solid #ccc; width: 200px"
+      >
+        Hover over me
+      </div>
+    </div>
+    <div>
+
+      <h3>6. Double Click</h3>
+      <p ondblclick="alert('Double clicked!')"><u>Double click here</u></p>
+    </div>
+  </body>
+</html>

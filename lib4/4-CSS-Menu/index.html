@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Site | Home</title>
+    <link rel="stylesheet" href="styles.css"> <!-- EXTERNAL CSS -->
+    <style>
+        /* INTERNAL CSS */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            background: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: rgb(12, 243, 243);
+        }
+    </style>
+</head>
+<body>
+    <!-- CSS MENU -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 style="text-align: center;">Welcome to <em>My Site</em></h1>
+        <p>This is the <b>homepage</b> of our simple website.</p>
+    </main>
+
+    <footer>
+        <!-- MOUSEOVER LINK -->
+        <!-- Inline & External CSS -->
+        <a href="index.html" 
+           style="color: #333;" 
+           class="mouseover">
+           Return to Home
+        </a>
+    </footer>
+</body>
+</html>

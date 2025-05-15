@@ -1,0 +1,22 @@
+/* EXTERNAL CSS */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  background: #333;
+  padding: 10px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+  color: rgb(12, 243, 243);
+}
+
+.mouseover:hover {
+  color: rgb(243, 97, 12) !important;
+  text-decoration: underline;
+}

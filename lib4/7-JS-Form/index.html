@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Information Form</title>
+
+    <!-- Link to external CSS file -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     
+    <style>
+      body {
+        max-width: 400px;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        color: rgb(6, 122, 237);
+      }
+      label {
+        display: block;
+        margin-bottom: 4px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Personal Information</h1>
+
+    <form id="personalForm" onsubmit="return validateForm()">
+      
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" />
+      <div id="nameError" class="error"></div>
+
+      <label for="email">Email*</label>
+      <input type="text" id="email" name="email" />
+      <div id="emailError" class="error"></div>
+
+      <label for="mobile">Mobile Number*</label>
+      <input type="text" id="mobile" name="mobile" maxlength="11" />
+      <div id="mobileError" class="error"></div>
+
+      <label for="gender">Gender*</label>
+      <select id="gender" name="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <div id="genderError" class="error"></div>
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Link to external JavaScript file -->
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+      function showError(id, message) {
+        document.getElementById(id).textContent = message;
+      }
+
+      function clearErrors() {
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => (el.textContent = ""));
+      }
+
+      function validateForm() {
+        clearErrors();
+
+        let isValid = true;
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const gender = document.getElementById("gender").value;
+
+        if (name === "") {
+          showError("nameError", "Name is required");
+          isValid = false;
+        }
+
+        if (email === "") {
+          showError("emailError", "Email is required");
+          isValid = false;
+        } else if (!email.includes("@") || !email.includes(".")) {
+          showError("emailError", "Invalid email format");
+          isValid = false;
+        }
+
+        if (mobile === "") {
+          showError("mobileError", "Mobile number is required");
+          isValid = false;
+        } else if (mobile.length !== 11 || isNaN(mobile)) {
+          showError("mobileError", "Mobile must be 11 digits");
+          isValid = false;
+        }
+
+        if (gender === "") {
+          showError("genderError", "Gender is required");
+          isValid = false;
+        }
+
+        return isValid;
+      }
+    </script>
+  </body>
+</html>

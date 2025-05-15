@@ -1,0 +1,35 @@
+/* EXTERNAL CSS */
+
+/* Form field alignment */
+.user-form label {
+  display: block;
+  margin: 15px;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 8px;
+}
+
+/* Submit button with white text */
+.submit-btn {
+  padding: 8px 16px;
+  background: navy;
+  color: white;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background: rgb(13, 208, 211);
+}
+
+/* Table header row */
+.table-header {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table-header th {
+  padding: 10px;
+  text-align: left;
+}
