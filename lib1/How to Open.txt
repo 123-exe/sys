@@ -1,0 +1,17 @@
+1. Open Prolog
+2. Goto File > New and write progarm name
+3. Save it to a folder
+4. Now write the code in the new window
+5. Now goto File > Save Buffer
+6. Now go back to first window of Prolog
+7. In 1st widnow, goto File > Consult...
+8. Now open that program file that you saved
+9. Now write the query in the fucntion.
+   (Given in the progarm last line named sample)
+
+For Example, 
+sum_list([1, 2, 3, 4, 5], Sum).
+
+Now the answer will come.
+
+

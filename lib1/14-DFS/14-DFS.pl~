@@ -1,0 +1,14 @@
+% Graph representation using edges
+edge(a, b). edge(a, c). edge(b, d). edge(b, e). edge(c, f). edge(e, f).
+
+% DFS traversal
+dfs(Start, Goal, Path) :- dfs_helper(Start, Goal, [Start], Path).
+
+dfs_helper(Goal, Goal, Path, Path).
+dfs_helper(Current, Goal, Visited, Path) :-
+    edge(Current, Next),
+    \+ member(Next, Visited),  % Avoid cycles
+    dfs_helper(Next, Goal, [Next | Visited], Path).
+
+% Sample query:
+% ?- dfs(a, f, Path).

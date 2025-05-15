@@ -1,0 +1,7 @@
+reverse([], []).  
+reverse([H|T], R) :-  
+    reverse(T, RevT),  
+    append(RevT, [H], R).
+
+% Sample query:
+% ?- reverse([1, 2, 3, 4, 5], R).

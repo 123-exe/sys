@@ -1,0 +1,32 @@
+% Sample graph with heuristic values
+% Format: h(Node, Heuristic)
+h(a, 6). h(b, 4). h(c, 5). h(d, 2). h(e, 0). % 'e' is goal
+
+% Connections
+edge(a, b).
+edge(a, c).
+edge(b, d).
+edge(c, d).
+edge(d, e).
+
+% Hill Climbing algorithm
+hill_climb(Node, Goal, Path) :- 
+    hill_climb_util(Node, Goal, [Node], Path).
+
+hill_climb_util(Goal, Goal, Visited, Path) :- 
+    reverse(Visited, Path).
+
+hill_climb_util(Current, Goal, Visited, Path) :-
+    findall(Next, (edge(Current, Next), \+ member(Next, Visited)), Neighbors),
+    sort_neighbors_by_heuristic(Neighbors, Sorted),
+    Sorted = [Best | _],
+    hill_climb_util(Best, Goal, [Best | Visited], Path).
+
+% Sort neighbors by their heuristic value (ascending)
+sort_neighbors_by_heuristic(Neighbors, Sorted) :-
+    map_list_to_pairs(h, Neighbors, Pairs),
+    keysort(Pairs, SortedPairs),
+    pairs_values(SortedPairs, Sorted).
+
+% Sample query:
+% ?- hill_climb(a, e, Path).
