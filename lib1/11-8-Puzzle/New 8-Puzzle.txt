@@ -1,0 +1,59 @@
+% Initial and Goal States
+initial_state([1, 2, 3, 4, 5, 6, 7, 8, 0]).
+goal_state([1, 2, 3, 4, 5, 6, 7, 8, 0]).
+
+% Valid Moves - handle all 4 directions depending on blank's position
+move(S, R) :- move_left(S, R).
+move(S, R) :- move_right(S, R).
+move(S, R) :- move_up(S, R).
+move(S, R) :- move_down(S, R).
+
+% Move blank (0) left
+move_left([A,B,C,D,E,F,G,H,0], [A,B,C,D,E,F,G,0,H]).
+move_left([A,B,C,D,E,F,0,H,I], [A,B,C,D,E,F,H,0,I]).
+move_left([A,B,C,0,E,F,G,H,I], [A,B,C,E,0,F,G,H,I]).
+
+% Move blank (0) right
+move_right([A,B,C,D,E,F,G,0,I], [A,B,C,D,E,F,G,I,0]).
+move_right([A,B,C,D,E,F,0,H,I], [A,B,C,D,E,F,H,0,I]).
+move_right([A,B,C,0,E,F,G,H,I], [A,B,C,E,0,F,G,H,I]).
+
+% Move blank (0) up
+move_up([A,B,C,D,E,F,0,H,I], [A,B,0,D,E,F,C,H,I]).
+move_up([A,B,C,D,0,F,G,H,I], [A,0,C,D,B,F,G,H,I]).
+move_up([A,B,C,0,E,F,G,H,I], [0,B,C,A,E,F,G,H,I]).
+
+% Move blank (0) down
+move_down([0,B,C,D,E,F,G,H,I], [D,B,C,0,E,F,G,H,I]).
+move_down([A,0,C,D,E,F,G,H,I], [A,E,C,D,0,F,G,H,I]).
+move_down([A,B,0,D,E,F,G,H,I], [A,B,F,D,E,0,G,H,I]).
+
+% Solve the puzzle using DFS
+solve(State, Path) :-
+    goal_state(Goal),
+    dfs(State, Goal, [State], Path).
+
+dfs(State, State, Path, Path).
+dfs(State, Goal, Visited, Path) :-
+    move(State, NextState),
+    \+ member(NextState, Visited),
+    dfs(NextState, Goal, [NextState | Visited], Path).
+
+% Entry point
+solve :-
+    initial_state(State),
+    solve(State, Path),
+    print_path(Path).
+
+% Display the steps
+print_path([]).
+print_path([H|T]) :-
+    print_path(T),
+    write('Step:'), nl,
+    display_state(H), nl.
+
+% Display the puzzle in 3x3 format
+display_state([A,B,C,D,E,F,G,H,I]) :-
+    write([A,B,C]), nl,
+    write([D,E,F]), nl,
+    write([G,H,I]), nl.
