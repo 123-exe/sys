@@ -1,0 +1,12 @@
+CREATE TABLE form_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    message TEXT,
+    newsletter VARCHAR(10),
+    interests TEXT,
+    country VARCHAR(50),
+    gender VARCHAR(10),
+    password VARCHAR(255),
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

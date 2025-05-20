@@ -1,0 +1,58 @@
+ Steps to Create and Run PHP Form Using XAMPP
+
+1. Open XAMPP Control &
+   Start Apache and MySQL services
+
+2. Create Project Folder
+   Go to: C:\xampp\htdocs\
+   Create a new folder named: 6_PHP_GPA
+
+3. Create PHP Files
+   Inside C:\xampp\htdocs\6_PHP_GPA 
+   Create these 3 files:
+    index.php
+    process.php
+    result.php
+Paste the respective code into each file.
+-----
+OR, Copy Paste the whole "6_PHP_GPA" Folder to "htdocs".
+-----
+
+4. Create Database and Table
+Open browser → Go to: http://localhost/phpmyadmin
+
+Create a database: student_grading
+
+Run this SQL query in SQL Tab and click Go:
+
+CREATE TABLE student_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    student_id VARCHAR(20) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    semester VARCHAR(20) NOT NULL,
+    subject1 VARCHAR(50) NOT NULL,
+    mark1 INT NOT NULL,
+    subject2 VARCHAR(50) NOT NULL,
+    mark2 INT NOT NULL,
+    subject3 VARCHAR(50) NOT NULL,
+    mark3 INT NOT NULL,
+    gpa DECIMAL(3,2) NOT NULL,
+    grade VARCHAR(2) NOT NULL,
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+5. Open Form in Browser
+Go to: http://localhost/6_PHP_GPA/form.php
+
+Fill and submit the form
+
+6. View Submitted Data
+After submitting, you'll be redirected to:
+
+http://localhost/6_PHP_GPA/result.php?id=1
+View the saved data from the database.
+
+And also go to the http://localhost/phpmyadmin
+Select > student_grading Database > student_records Table
+To see all the records that is saved in MySQL Database.

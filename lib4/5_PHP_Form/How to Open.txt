@@ -1,0 +1,55 @@
+ Steps to Create and Run PHP Form Using XAMPP
+
+1. Open XAMPP Control &
+   Start Apache and MySQL services
+
+2. Create Project Folder
+   Go to: C:\xampp\htdocs\
+   Create a new folder named: 5_PHP_Form
+
+3. Create PHP Files
+   Inside C:\xampp\htdocs\5_PHP_Form 
+   Create these 3 files:
+    form.php
+    submit.php
+    display.php
+Paste the respective code into each file.
+-----
+OR, Copy Paste the whole "5_PHP_Form" Folder to "htdocs".
+-----
+
+4. Create Database and Table
+Open browser → Go to: http://localhost/phpmyadmin
+
+Create a database: form_db
+
+Run this SQL query:
+
+CREATE TABLE form_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    message TEXT,
+    newsletter VARCHAR(10),
+    interests TEXT,
+    country VARCHAR(50),
+    gender VARCHAR(10),
+    password VARCHAR(255),
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+5. Open Form in Browser
+Go to: http://localhost/5_PHP_Form/form.php
+
+Fill and submit the form
+
+6. View Submitted Data
+After submitting, you'll be redirected to:
+
+http://localhost/5_PHP_Form/display.php?id=1
+View the saved data from the database.
+
+And also go to the http://localhost/phpmyadmin
+Select > form_db Database > form_data Table
+To see all the records that is saved in MySQL Database.

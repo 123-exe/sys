@@ -1,0 +1,16 @@
+CREATE TABLE student_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    student_id VARCHAR(20) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    semester VARCHAR(20) NOT NULL,
+    subject1 VARCHAR(50) NOT NULL,
+    mark1 INT NOT NULL,
+    subject2 VARCHAR(50) NOT NULL,
+    mark2 INT NOT NULL,
+    subject3 VARCHAR(50) NOT NULL,
+    mark3 INT NOT NULL,
+    gpa DECIMAL(3,2) NOT NULL,
+    grade VARCHAR(2) NOT NULL,
+    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
